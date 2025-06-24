@@ -26,9 +26,16 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Despesas Pessois'),
       ),
-      body: Center(
-        child: Text("Versão Inicial"),
-      ),
+      body: Column(
+        children: [
+          // ignore: sized_box_for_whitespace
+          Container(
+            width: double.infinity,
+            child: Card(elevation: 5, child: Text('Gráfico')),
+          ),
+          Card(child: Text('Lista de Transações')),
+        ],
+      )
     );
   }
 }
