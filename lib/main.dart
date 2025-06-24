@@ -27,6 +27,8 @@ class MyHomePage extends StatelessWidget {
         title: Text('Despesas Pessois'),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           // ignore: sized_box_for_whitespace
           Container(
