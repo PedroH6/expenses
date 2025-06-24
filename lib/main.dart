@@ -16,7 +16,6 @@ class ExpensesApp extends StatelessWidget {
 
 // ignore: use_key_in_widget_constructors
 class MyHomePage extends StatelessWidget {
-
   // ignore: unused_field
   final _transaction = [
     Transaction(
@@ -33,7 +32,6 @@ class MyHomePage extends StatelessWidget {
     ),
   ];
 
- 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,7 +45,11 @@ class MyHomePage extends StatelessWidget {
             width: double.infinity,
             child: Card(elevation: 5, child: Text('Gráfico')),
           ),
-          Card(child: Text('Lista de Transações')),
+          Column(
+            children: _transaction.map((tr) {
+              return Card(child: Text(tr.title));
+            }).toList(),
+          ),
         ],
       ),
     );
