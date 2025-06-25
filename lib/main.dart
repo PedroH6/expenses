@@ -22,16 +22,18 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Despesas Pessois')),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          // ignore: sized_box_for_whitespace
-          Container(
-            width: double.infinity,
-            child: Card(elevation: 5, child: Text('Gráfico')),
-          ),
-          TransactionUser(),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            // ignore: sized_box_for_whitespace
+            Container(
+              width: double.infinity,
+              child: Card(elevation: 5, child: Text('Gráfico')),
+            ),
+            TransactionUser(),
+          ],
+        ),
       ),
     );
   }
