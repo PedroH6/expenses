@@ -17,6 +17,9 @@ class ExpensesApp extends StatelessWidget {
 
 // ignore: use_key_in_widget_constructors
 class MyHomePage extends StatelessWidget {
+  final titleController = TextEditingController();
+  final valueController = TextEditingController();
+
   // ignore: unused_field
   final _transaction = [
     Transaction(
@@ -60,7 +63,7 @@ class MyHomePage extends StatelessWidget {
                       ),
                       padding: EdgeInsets.all(10),
                       child: Text(
-                       'R\$ + ${tr.value.toStringAsFixed(2)}',
+                        'R\$ + ${tr.value.toStringAsFixed(2)}',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
@@ -95,15 +98,22 @@ class MyHomePage extends StatelessWidget {
               padding: const EdgeInsets.all(10),
               child: Column(
                 children: [
-                  TextField(decoration: InputDecoration(labelText: 'Titulo')),
                   TextField(
+                    controller: titleController,
+                    decoration: InputDecoration(labelText: 'Titulo'),
+                  ),
+                  TextField(
+                    controller: valueController,
                     decoration: InputDecoration(labelText: 'Valor (R\$)'),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          print(titleController);
+                          print(valueController);
+                        },
                         style: TextButton.styleFrom(
                           foregroundColor: Colors.purple,
                         ),
@@ -114,7 +124,7 @@ class MyHomePage extends StatelessWidget {
                 ],
               ),
             ),
-          )
+          ),
         ],
       ),
     );
