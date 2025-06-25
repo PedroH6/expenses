@@ -1,4 +1,3 @@
-import 'package:expenses/model/transaction.dart';
 import 'package:flutter/material.dart';
 
 class TransactionForm extends StatelessWidget {
