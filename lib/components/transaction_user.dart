@@ -1,3 +1,4 @@
+import 'package:uuid/uuid.dart';
 import 'package:expenses/model/transaction.dart';
 import 'package:flutter/material.dart';
 import 'transaction_list.dart';
@@ -11,7 +12,6 @@ class TransactionUser extends StatefulWidget {
 }
 
 class _TransactionUserState extends State<TransactionUser> {
-  
   final _transaction = [
     Transaction(
       id: "t1",
@@ -26,15 +26,18 @@ class _TransactionUserState extends State<TransactionUser> {
       date: DateTime.now(),
     ),
   ];
-  
+
+  _addTransaction(String title, double value) {
+    final newTransaction = Transaction(
+      id: Uuid().v4(),
+      title: title,
+      value: value,
+      date: DateTime.now(),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        TransactionList(_transaction),
-        TransactionForm(),
-      ],
-    );
+    return Column(children: [TransactionList(_transaction), TransactionForm()]);
   }
 }
